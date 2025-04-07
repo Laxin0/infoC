@@ -27,7 +27,7 @@ function return_error($msg, $code=500){
 }
 
 function db_get_data_by_name($connection, $name){
-    $query = "SELECT id, path FROM nodes WHERE name='{$name}'";
+    $query = "SELECT id, path FROM pages WHERE name='{$name}'";
     $result = $connection->query($query);
     
     $row = $result->fetch_assoc();
@@ -36,7 +36,7 @@ function db_get_data_by_name($connection, $name){
     $path = $row["path"];
     $content = file_get_contents("data/" . $path);
     
-    $query = "SELECT name FROM nodes WHERE parent_id=$curent_id";
+    $query = "SELECT name FROM pages WHERE parent_id=$curent_id";
     $result = $connection->query($query);
     
     $child_names = array();

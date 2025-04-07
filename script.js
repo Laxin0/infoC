@@ -18,7 +18,7 @@ function updatePage(data){
         newButton.onclick = (() => updateText(newButton));
         buttons.appendChild(newButton);
     });
-    document.getElementById("path").innerHTML = path.join(" -> ");
+    document.getElementById("path").innerHTML = path.join("/");
 }
 
 function selectNodeByName(name){

@@ -11,7 +11,7 @@ CREATE TABLE pages(
 );
 
 INSERT INTO pages (name, parent_id, path)
-VALUES ('Корень', NULL, "root.htm"),       -- 1
+VALUES ('Корень', 1, "root.htm"),       -- 1
         ('Общежитие', 1, 'dormitory.htm'), -- 2
         ('Направления', 1, 'specs.htm'),   -- 3
         ('Строительство', 3, 'build.htm'), -- 4

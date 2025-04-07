@@ -3,7 +3,7 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "tree";
+$dbname = "infocenter_db";
 $mysql = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 if ($mysql->connect_error) {
