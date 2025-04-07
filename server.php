@@ -1,5 +1,5 @@
 <?php
-header("Content-Type: application/json");
+include("db_connection.php");
 
 function numerate($indexedArray){
     $associativeArray = array();
@@ -26,15 +26,33 @@ function return_error($msg, $code=500){
     exit();
 }
 
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "tree";
-$mysql = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-
-if ($mysql->connect_error) {
-    return_error("Could not connect to DB" . $mysql->connect_error);
+function db_get_data_by_name($connection, $name){
+    $query = "SELECT id, path FROM nodes WHERE name='{$name}'";
+    $result = $connection->query($query);
+    
+    $row = $result->fetch_assoc();
+    
+    $curent_id = $row["id"];
+    $path = $row["path"];
+    $content = file_get_contents("data/" . $path);
+    
+    $query = "SELECT name FROM nodes WHERE parent_id=$curent_id";
+    $result = $connection->query($query);
+    
+    $child_names = array();
+    while ($row = $result->fetch_assoc()) {
+        array_push($child_names, $row["name"]);
+    }
+    
+    $data = array(
+        "name" => $name,
+        "content" => $content,
+        "child_names" => numerate($child_names)
+    );
+    return $data;
 }
+
+header("Content-Type: application/json");
 
 $name = '';
 if (!isset($_GET['name'])){ //TODO: Read about error handling in php
@@ -42,33 +60,9 @@ if (!isset($_GET['name'])){ //TODO: Read about error handling in php
 }
 
 $name = $_GET['name'];
+$data = db_get_data_by_name($mysql, $name);
+echo json_encode($data);
 
-$query = "SELECT id, path FROM nodes WHERE name='{$name}'";
-$result = $mysql->query($query);
-
-$row = $result->fetch_assoc();
-
-$curent_id = $row["id"];
-$path = $row["path"];
-$content = file_get_contents("data/" . $path);
-
-$query = "SELECT name FROM nodes WHERE parent_id=$curent_id";
-$result = $mysql->query($query);
-
-$child_names = array();
-while ($row = $result->fetch_assoc()) {
-    array_push($child_names, $row["name"]);
-}
-
-$response_arr = array(
-    "name" => $name,
-    "content" => $content,
-    "child_names" => numerate($child_names)
-);
-http_response_code(200);
-echo json_encode($response_arr);
-
-
-$mysqli->close();
+$mysql->close();
 
 ?>
