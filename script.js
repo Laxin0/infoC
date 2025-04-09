@@ -1,11 +1,5 @@
 let id_by_name = []
 
-function updateText(button) {
-    if (path[path.length-1] == button.textContent) return;
-    selectNodeByName(button.textContent);
-    path.push(button.textContent);
-}
-
 function updatePage(data){
     document.getElementById("content").innerHTML = data.content;
 
@@ -14,30 +8,16 @@ function updatePage(data){
     let buttons = document.getElementById("child_nodes");
     buttons.replaceChildren();
 
-    data.child_names.forEach((id, name) => {
+    data.child_nodes.forEach(node => {
         let newButton = document.createElement("button");
-        newButton.textContent = ch_name;
-        newButton.onclick = (() => updateText(id));
+        newButton.textContent = node.name;
+        newButton.onclick = (() => selectNodeById(node.id));
         buttons.appendChild(newButton);
-    });
-    
-    document.getElementById("path").innerHTML = path.join("/");
+    }); //IDEA: show current path
 }
 
-function selectNodeByName(name){
-    fetch(`server.php?name=${name}`)
-    .then(response => response.json())
-    .then( data => {
-        if (data.error){
-            console.error("Error:", error);
-            return;
-        }
-        updatePage(data);
-    })
-    .catch(error => console.error("Error:", error));
-}
-
-function selectNodeByName(id){
+function selectNodeById(id){
+    if (path[path.length-1] != id) path.push(id);
     fetch(`server.php?id=${id}`)
     .then(response => response.json())
     .then( data => {
@@ -55,5 +35,5 @@ let path = []
 function goBack(){
     if(path.length < 2) return;
     path.pop();
-    selectNodeByName(path[path.length-1]);
+    selectNodeById(path[path.length-1]);
 }
