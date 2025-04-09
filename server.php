@@ -9,17 +9,6 @@ function numerate($indexedArray){
     return $associativeArray;
 }
 
-function return_test_info(){
-    $response_arr = array(
-        "name" => "aaaa",
-        "content" => "bbbb",
-        "child_names" => numerate(array("cccc", "dddd"))
-    );
-    
-    echo json_encode($response_arr);
-    exit();
-}
-
 function return_error($msg, $code=500){
     echo json_encode(["error" => $msg]);
     http_response_code($code);
@@ -55,7 +44,7 @@ function db_get_data_by_name($connection, $name){
 header("Content-Type: application/json");
 
 $name = '';
-if (!isset($_GET['name'])){ //TODO: Read about error handling in php
+if (!isset($_GET['name'])){
     return_error("No name was provides for searching.");
 }
 
