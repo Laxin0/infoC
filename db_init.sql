@@ -10,6 +10,8 @@ CREATE TABLE pages(
     PRIMARY KEY (id)
 );
 
+ALTER TABLE pages CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 INSERT INTO pages (name, parent_id, path)
 VALUES ('Корень', 1, "root.htm"),       -- 1
         ('Общежитие', 1, 'dormitory.htm'), -- 2
