@@ -41,47 +41,19 @@ function db_get_data_by_id($connection, $id){ # Get name directly from the butto
     return $data;
 }
 
-function db_get_data_by_name($connection, $name){
-    $query = "SELECT id, path FROM pages WHERE name='{$name}'";
-    $result = $connection->query($query);
-    
-    $row = $result->fetch_assoc();
-    
-    $curent_id = $row["id"];
-    $path = $row["path"];
-    $content = file_get_contents("data/" . $path);
-    
-    $query = "SELECT name FROM pages WHERE parent_id=$curent_id";
-    $result = $connection->query($query);
-    
-    $child_names = array();
-    while ($row = $result->fetch_assoc()) {
-        array_push($child_names, $row["name"]);
-    }
-    
-    $data = array(
-        "name" => $name,
-        "content" => $content,
-        "child_names" => numerate($child_names)
-    );
-    return $data;
-}
-
 header("Content-Type: application/json");
 
 $name = '';
 $data;
 
-if (isset($_GET['name'])){
-    $name = $_GET['name'];
-    $data = db_get_data_by_name($mysql, $name);
-    
-}elseif(isset($_GET['id'])){
+if(!isset($_GET['id'])){
+    return_error("Id wasn't provided.");
     $id = $_GET['id'];
     $data = db_get_data_by_id($mysql, $id);
-}else{
-    return_error("Neither name nor id was given.");
 }
+
+$id = $_GET['id'];
+$data = db_get_data_by_id($mysql, $id);
 
 echo json_encode($data);
 
