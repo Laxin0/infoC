@@ -1,5 +1,3 @@
-let id_by_name = []
-
 function updatePage(data){
     document.getElementById("content").innerHTML = data.content;
 
@@ -13,7 +11,7 @@ function updatePage(data){
         newButton.textContent = node.name;
         newButton.onclick = (() => selectNodeById(node.id));
         buttons.appendChild(newButton);
-    }); //IDEA: show current path
+    });
 }
 
 function selectNodeById(id){

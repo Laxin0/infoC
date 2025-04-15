@@ -14,8 +14,6 @@ function loadEnv($path)
         $value = trim($value);
 
         putenv("$key=$value");
-        $_ENV[$key] = $value;
-        $_SERVER[$key] = $value;
     }
 }
 
@@ -25,8 +23,6 @@ $dbuser = getenv("DB_USER");
 $dbpass = getenv("DB_PASS");
 $dbname = getenv("DB_NAME");
 
-#echo $dbhost . "/" . $dbuser . "/" . $dbpass . "/" . $dbname . "<br>";
-
 $mysql = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 if ($mysql->connect_error) {
@@ -35,5 +31,6 @@ if ($mysql->connect_error) {
 if (!$mysql->set_charset("utf8mb4")) {
     die("Error loading character set utf8mb4: " . $mysql->error);
 }
+
 # $mysql->close();
 ?>
