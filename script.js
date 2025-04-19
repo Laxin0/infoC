@@ -35,3 +35,33 @@ function goBack(){
     path.pop();
     selectNodeById(path[path.length-1]);
 }
+
+function openPopup(id) {
+    document.getElementById(id).style.display = 'flex';
+}
+
+function closePopup(id) {
+    document.getElementById(id).style.display = 'none';
+}
+
+function deleteCurrentPage(){ //TODO: root can't be deleted
+    const currentId = path[path.length-1];
+    fetch('delete.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: JSON.stringify({id: currentId})
+    })
+    .then(response => response.json())
+    .then( data => {
+        if (data.status === "ok"){
+            goBack();
+            closePopup('deleteForm');
+            alert("Страница удалена");
+        }else{
+            alert("Не удалось удалить страницу.");
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}

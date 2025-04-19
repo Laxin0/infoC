@@ -16,7 +16,7 @@ function return_error($msg, $code=500){
 }
 
 function db_get_data_by_id($connection, $id){ # Get name directly from the button
-    $query = "SELECT name, path FROM pages WHERE id='{$id}'";
+    $query = "SELECT name, path FROM pages WHERE id=$id";
     $result = $connection->query($query);
     
     $row = $result->fetch_assoc();
@@ -48,14 +48,11 @@ $data;
 
 if(!isset($_GET['id'])){
     return_error("Id wasn't provided.");
+}else{
     $id = $_GET['id'];
     $data = db_get_data_by_id($mysql, $id);
+    echo json_encode($data);
 }
-
-$id = $_GET['id'];
-$data = db_get_data_by_id($mysql, $id);
-
-echo json_encode($data);
 
 $mysql->close();
 
