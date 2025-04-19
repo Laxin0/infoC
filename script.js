@@ -49,7 +49,7 @@ function deleteCurrentPage(){ //TODO: root can't be deleted
     fetch('delete.php', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({id: currentId})
     })
@@ -61,6 +61,34 @@ function deleteCurrentPage(){ //TODO: root can't be deleted
             alert("Страница удалена");
         }else{
             alert("Не удалось удалить страницу.");
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+function submitSos(event){
+    event.preventDefault();
+    const bodyData = {
+        phoneNumber: document.getElementById("phoneNumberInput").value,
+        fullName: document.getElementById("fullNameInput").value,
+        question: document.getElementById("questionInput").value,
+        sourcePage: path[path.length-1]
+    }
+
+    fetch('savesos.php',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "ok"){
+            closePopup('sosForm');
+            alert("Вопрос добавлен.");
+        }else{
+            alert("Не удалось добавить вопрос.");
         }
     })
     .catch(error => console.error("Error:", error));
