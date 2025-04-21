@@ -1,4 +1,5 @@
 function updatePage(data){
+    document.getElementById("path").innerText = namesPath.join("/");
     document.getElementById("content").innerHTML = data.content;
 
     document.getElementById("name").innerHTML = data.name;
@@ -15,7 +16,6 @@ function updatePage(data){
 }
 
 function selectNodeById(id){
-    if (path[path.length-1] != id) path.push(id);
     fetch(`server.php?id=${id}`)
     .then(response => response.json())
     .then( data => {
@@ -23,16 +23,22 @@ function selectNodeById(id){
             console.error("Error:", error);
             return;
         }
+        if (path[path.length-1] != id){
+             path.push(id);
+             namesPath.push(data.name);
+        }
         updatePage(data);
     })
     .catch(error => console.error("Error:", error));
 }
 
 let path = []
+let namesPath = []
 
 function goBack(){
     if(path.length < 2) return;
     path.pop();
+    namesPath.pop();
     selectNodeById(path[path.length-1]);
 }
 
@@ -118,3 +124,5 @@ function openHistory(){
     }).catch(error => console.error("Error: ", error));
     openPopup('historyForm');
 }
+
+selectNodeById(1);

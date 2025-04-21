@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="path"></div>
     <button onclick="goBack()">Назад</button><br>
     <hr>
     <div id="content"></div>
