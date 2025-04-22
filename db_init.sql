@@ -21,10 +21,10 @@ VALUES (1, 'Корень', 1, "root.htm"),       -- 1
         (5, 'Информатика', 3, 'it.htm');      -- 5
 
 CREATE TABLE calls(
-    id           int          NOT NULL AUTO_INCREMENT,
-    phone_number varchar(16)  NOT NULL,
-    full_name    varchar(255) NOT NULL,
-    question     text         NOT NULL,
-    source_page  int          NOT NULL,
+    id              int          NOT NULL AUTO_INCREMENT,
+    phone_number    varchar(16)  NOT NULL,
+    full_name       varchar(255) NOT NULL,
+    question        text         NOT NULL,
+    source_page_id  int          NOT NULL,
     PRIMARY KEY (id)
 )
