@@ -6,9 +6,21 @@ CREATE TABLE pages(
     id        int          NOT NULL AUTO_INCREMENT,
     name      varchar(255) NOT NULL,
     parent_id int,
-    path      varchar(255),
+    path      varchar(255), -- page_content text,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE calls(
+    id              int          NOT NULL AUTO_INCREMENT,
+    phone_number    varchar(16)  NOT NULL,
+    full_name       varchar(255) NOT NULL,
+    question        text         NOT NULL,
+    source_page_id  int          NOT NULL,
+    is_solved       boolean      NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (source_page_id) REFERENCES pages(id)
+)
+
 
 -- ALTER TABLE pages CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -19,12 +31,3 @@ VALUES (1, 'Корень', 1, "root.htm"),       -- 1
         (3, 'Направления', 1, 'specs.htm'),   -- 3
         (4, 'Строительство', 3, 'build.htm'), -- 4
         (5, 'Информатика', 3, 'it.htm');      -- 5
-
-CREATE TABLE calls(
-    id              int          NOT NULL AUTO_INCREMENT,
-    phone_number    varchar(16)  NOT NULL,
-    full_name       varchar(255) NOT NULL,
-    question        text         NOT NULL,
-    source_page_id  int          NOT NULL,
-    PRIMARY KEY (id)
-)

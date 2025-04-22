@@ -10,7 +10,7 @@ $full_name = $data['fullName'];
 $question = $data['question'];
 $source_page = $data['sourcePage'];
 
-$result = $mysql->query("INSERT INTO calls (phone_number, full_name, question, source_page) VALUES ('$phone_number', '$full_name', '$question', '$source_page')");
+$result = $mysql->query("INSERT INTO calls (phone_number, full_name, question, source_page_id) VALUES ('$phone_number', '$full_name', '$question', '$source_page')");
 
 echo(json_encode(["status" => $result ? "ok" : "err"]));
 

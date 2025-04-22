@@ -13,23 +13,10 @@
     <hr>
     <div id="content"></div>
     <hr>
-    <div id="child_nodes">
-        <button onclick="selectNodeById(1)">Корень</button>
-    </div>
+    <div id="child_nodes"></div>
 
     <hr>
-    <button onclick="openPopup('deleteForm')">Удалить</button>
     <button onclick="openPopup('sosForm')">SOS</button>
-    <button onclick="openHistory()">История</button>
-
-    <div class="overlay" id="deleteForm"> <!-- DELETE FORM-->
-      <div class="message-box">
-        <span class="close-btn" onclick="closePopup('deleteForm')">×</span>
-        <h2>Удалить текущую страницу?</h2>
-        <p>!!! Все дочерние страницы будут также удалены !!!</p>
-        <button onclick="deleteCurrentPage()">Удалить</button>
-      </div>
-    </div>
 
     <div class="overlay" id="sosForm"> <!-- SOS FORM-->
       <div class="message-box">
@@ -44,14 +31,6 @@
           <input type="text" id="questionInput" required><br>
           <button type="submit">Сохранить</button>
         </form>
-      </div>
-    </div>
-
-    <div class="overlay" id="historyForm"> <!-- HISTORY FORM-->
-      <div class="message-box">
-        <span class="close-btn" onclick="closePopup('historyForm')">×</span>
-        <h2>Звонки</h2>
-        <table border="1" id="calls"></table>
       </div>
     </div>
 

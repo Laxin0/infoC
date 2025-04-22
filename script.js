@@ -50,28 +50,6 @@ function closePopup(id) {
     document.getElementById(id).style.display = 'none';
 }
 
-function deleteCurrentPage(){ //TODO: root can't be deleted
-    const currentId = path[path.length-1];
-    fetch('delete.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({id: currentId})
-    })
-    .then(response => response.json())
-    .then( data => {
-        if (data.status === "ok"){
-            goBack();
-            closePopup('deleteForm');
-            alert("Страница удалена");
-        }else{
-            alert("Не удалось удалить страницу.");
-        }
-    })
-    .catch(error => console.error("Error:", error));
-}
-
 function submitSos(event){
     event.preventDefault();
     const bodyData = {
@@ -98,31 +76,6 @@ function submitSos(event){
         }
     })
     .catch(error => console.error("Error:", error));
-}
- 
-function openHistory(){
-    fetch("history.php")
-    .then(response => response.json())
-    .then(data => {
-        let html = `
-        <tr>
-            <th>Тел.</th>
-            <th>ФИО</th>
-            <th>Вопрос</th>
-        </tr>`;
-
-        data.forEach(row => {
-            html += `
-            <tr>
-            <td>${row.phoneNumber}</td>
-            <td>${row.fullName}</td>
-            <td>${row.question}</td>
-            </tr>`;
-        });
-
-        document.getElementById("calls").innerHTML = html;
-    }).catch(error => console.error("Error: ", error));
-    openPopup('historyForm');
 }
 
 selectNodeById(1);
