@@ -7,7 +7,7 @@
 #### Переход на другую страницу
 `GET id=<id>` to `server.php`
 returns:
-```json
+```
 {
 	name: <имя страницы>,
 	content: <содержимое>,
@@ -30,7 +30,7 @@ returns:
 Открывает форму (телефон, ФИО, вопрос)
 На подтверждение отправляет
 `POST` to `saveSos.php`
-```json
+```
 body{
 	    phoneNumber: <Телефон>,
         fullName: <ФИО>,
@@ -40,7 +40,7 @@ body{
 ```
 
 `saveSos.php` returns
-```json
+```
 {
 	status: <"ok" | "err">
 }
