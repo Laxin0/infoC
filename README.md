@@ -39,7 +39,13 @@ body{
 }
 ```
 
-`saveSos.php` returns
+`saveSos.php`
+
+```
+INSERT INTO calls (phone_number, full_name, question, source_page_id) VALUES (<phoneNumber>, <fullName>, <question>, <sourcePage>)
+```
+
+returns
 ```
 {
 	status: <"ok" | "err">
@@ -47,3 +53,37 @@ body{
 ```
 
 Выдаем alert
+
+#### кнопка удалить
+предупреджение (будет удалено + все дочерние)
+
+sends `POST` to `delete.php`
+```
+{
+    id: <id>
+}
+```
+
+returns
+```
+{
+    status: <"ok" | "err">
+}
+```
+
+corresponding alert
+
+#### Add button
+Opens form (page name, content)
+
+Sends `POST` to `addPage.php`
+```
+body{
+    pageName: <name>,
+    content: <text>,
+    parent+id: <current id>
+}
+```
+
+#### Edit button
+Opens form (page name, new)
