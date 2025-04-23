@@ -99,6 +99,28 @@ function submitSos(event){
     })
     .catch(error => console.error("Error:", error));
 }
+
+function submitAdd(event){
+    event.preventDefault();
+
+    const bodyData = {
+        name: document.getElementById("nameInput"),
+        content: document.getElementById("contentInput"),
+        parentId: path[path.length-1]
+    }
+
+    fetch("addPage.php")
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "ok"){
+            closePopup('addForm');
+            alert("Страница добавлена.");
+        }else{
+            alert("Не удалось добавить страницу.");
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}
  
 function openHistory(){
     fetch("history.php")

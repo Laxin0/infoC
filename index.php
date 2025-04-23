@@ -21,6 +21,7 @@
     <button onclick="openPopup('deleteForm')">Удалить</button>
     <button onclick="openPopup('sosForm')">SOS</button>
     <button onclick="openHistory()">История</button>
+    <button onclick="openPopup('addForm')">Добавить</button>
 
     <div class="overlay" id="deleteForm"> <!-- DELETE FORM-->
       <div class="message-box">
@@ -43,6 +44,20 @@
           <label for="questionInput">Вопрос</label>
           <input type="text" id="questionInput" required><br>
           <button type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="overlay" id="addForm"> <!-- ADD FORM-->
+      <div class="message-box">
+        <span class="close-btn" onclick="closePopup('addForm')">×</span>
+        <h2>Новый узел будет добавлен к текущему</h2>
+        <form onsubmit="submitAdd(event)">
+          <label for="nameInput">Название</label>
+          <input type="text" id="nameInput" required><br>
+          <label for="contentInput">Содержание</label>
+          <input type="text" id="contentInput" required><br>
+          <button type="submit">Добавить</button>
         </form>
       </div>
     </div>
