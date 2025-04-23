@@ -9,13 +9,15 @@ function numerate($indexedArray){
     return $associativeArray;
 }
 
-$result = $mysql->query("SELECT phone_number, full_name, question FROM calls");
+$result = $mysql->query("SELECT phone_number, full_name, question, pages.name AS source_page_name, is_solved FROM calls JOIN pages ON calls.source_page_id=pages.id");
 $arr = array();
 
 while ($row = $result->fetch_assoc()) {
     array_push($arr, ["phoneNumber" => $row["phone_number"],
                                       "fullName" => $row["full_name"],
-                                      "question" => $row["question"]]);
+                                      "question" => $row["question"],
+                                      "sourcePage" => $row["source_page_name"],
+                                      "isSolved" => $row["is_solved"]]);
 }
 
 echo(json_encode(numerate($arr)));

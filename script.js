@@ -109,6 +109,8 @@ function openHistory(){
             <th>Тел.</th>
             <th>ФИО</th>
             <th>Вопрос</th>
+            <th>Источник</th>
+            <th>Cтатус</th>
         </tr>`;
 
         data.forEach(row => {
@@ -117,6 +119,8 @@ function openHistory(){
             <td>${row.phoneNumber}</td>
             <td>${row.fullName}</td>
             <td>${row.question}</td>
+            <td>${row.sourcePage}</td>
+            <td>${row.isSolve ? "Решено" : "Не решено"}</td>
             </tr>`;
         });
 

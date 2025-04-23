@@ -26,5 +26,17 @@ CREATE TABLE calls(
     full_name       varchar(255) NOT NULL,
     question        text         NOT NULL,
     source_page_id  int          NOT NULL,
+    is_solved       boolean      NOT NULL DEFAULT FALSE,
+    PRIMARY KEY (id),
+    FOREIGN KEY (source_page_id) REFERENCES pages(id)
+)
+
+insert into calls (phone_number, full_name, question, source_page_id) 
+values (4242, "a", "a", 1), (1212, "b", "b", 3);
+    id              int          NOT NULL AUTO_INCREMENT,
+    phone_number    varchar(16)  NOT NULL,
+    full_name       varchar(255) NOT NULL,
+    question        text         NOT NULL,
+    source_page_id  int          NOT NULL,
     PRIMARY KEY (id)
 )
