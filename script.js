@@ -109,7 +109,13 @@ function submitAdd(event){
         parentId: path[path.length-1]
     }
 
-    fetch("addPage.php")
+    fetch("addPage.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyData)
+    })
     .then(response => response.json())
     .then(data => {
         if (data.status === "ok"){
@@ -121,7 +127,49 @@ function submitAdd(event){
     })
     .catch(error => console.error("Error:", error));
 }
- 
+
+function updateEditForm(){
+    fetch(`server.php?id=${path[path.length-1]}`)
+    .then(response => response.json())
+    .then(data => {
+        if (data.error){
+            alert("Что-то пошло не так...");
+            return;
+        }
+        document.getElementById("newNameInput").value = data.name;
+        document.getElementById("newContentInput").value = data.value;
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+function submitEdit(event){
+    event.preventDefault();
+
+    const bodyData = {
+        id: path[path.length-1],
+        name: document.getElementById("newNameInput"),
+        content: document.getElementById("newContentInput"),
+    }
+
+    fetch("editPage.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "ok"){
+            closePopup('addForm');
+            alert("Новые данные сохранены.");
+        }else{
+            alert("Не удалось редактировать страницу.");
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}
+
 function openHistory(){
     fetch("history.php")
     .then(response => response.json())

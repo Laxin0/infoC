@@ -22,6 +22,7 @@
     <button onclick="openPopup('sosForm')">SOS</button>
     <button onclick="openHistory()">История</button>
     <button onclick="openPopup('addForm')">Добавить</button>
+    <button onclick="updateEditForm(); openPopup('editForm');">Редактировать</button>
 
     <div class="overlay" id="deleteForm"> <!-- DELETE FORM-->
       <div class="message-box">
@@ -58,6 +59,20 @@
           <label for="contentInput">Содержание</label>
           <input type="text" id="contentInput" required><br>
           <button type="submit">Добавить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="overlay" id="editForm"> <!-- EDIT FORM-->
+      <div class="message-box">
+        <span class="close-btn" onclick="closePopup('editForm')">×</span>
+        <h2>Редактировать текущую страницу</h2>
+        <form onsubmit="submitEdit(event); this.reset();">
+          <label for="newNameInput">Название</label>
+          <input type="text" id="newNameInput" required><br>
+          <label for="contentInput">Содержание</label>
+          <input type="text" id="newContentInput" required><br>
+          <button type="submit">Сохранить</button>
         </form>
       </div>
     </div>
