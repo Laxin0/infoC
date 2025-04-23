@@ -78,7 +78,7 @@ function submitSos(event){
         phoneNumber: document.getElementById("phoneNumberInput").value,
         fullName: document.getElementById("fullNameInput").value,
         question: document.getElementById("questionInput").value,
-        sourcePage: path[path.length-1]
+        sourcePageId: path[path.length-1]
     }
 
     fetch('savesos.php',{
