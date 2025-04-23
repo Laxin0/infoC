@@ -18,24 +18,24 @@
     </div>
 
     <hr>
-    <button onclick="openPopup('deleteForm')">Удалить</button>
-    <button onclick="openPopup('sosForm')">SOS</button>
+    <button onclick="openPopup('deletePopup')">Удалить</button>
+    <button onclick="openPopup('sosPopup')">SOS</button>
     <button onclick="openHistory()">История</button>
-    <button onclick="openPopup('addForm')">Добавить</button>
-    <button onclick="updateEditForm(); openPopup('editForm');">Редактировать</button>
+    <button onclick="updateHistory(); openPopup('addPopup');">Добавить</button>
+    <button onclick="updateEditPopup(); openPopup('editPopup');">Редактировать</button>
 
-    <div class="overlay" id="deleteForm"> <!-- DELETE FORM-->
+    <div class="overlay" id="deletePopup"> <!-- DELETE FORM-->
       <div class="message-box">
-        <span class="close-btn" onclick="closePopup('deleteForm')">×</span>
+        <span class="close-btn" onclick="closePopup('deletePopup')">×</span>
         <h2>Удалить текущую страницу?</h2>
         <p>!!! Все дочерние страницы будут также удалены !!!</p>
         <button onclick="deleteCurrentPage()">Удалить</button>
       </div>
     </div>
 
-    <div class="overlay" id="sosForm"> <!-- SOS FORM-->
+    <div class="overlay" id="sosPopup"> <!-- SOS FORM-->
       <div class="message-box">
-        <span class="close-btn" onclick="closePopup('sosForm')">×</span>
+        <span class="close-btn" onclick="closePopup('sosPopup')">×</span>
         <h2>Внесите данные для обратной связи</h2>
         <form onsubmit="submitSos(event); this.reset();">
           <label for="phoneNumberInput">Тел.</label>
@@ -49,9 +49,9 @@
       </div>
     </div>
 
-    <div class="overlay" id="addForm"> <!-- ADD FORM-->
+    <div class="overlay" id="addPopup"> <!-- ADD FORM-->
       <div class="message-box">
-        <span class="close-btn" onclick="closePopup('addForm')">×</span>
+        <span class="close-btn" onclick="closePopup('addPopup')">×</span>
         <h2>Новый узел будет добавлен к текущему</h2>
         <form onsubmit="submitAdd(event); this.reset();">
           <label for="nameInput">Название</label>
@@ -63,9 +63,9 @@
       </div>
     </div>
 
-    <div class="overlay" id="editForm"> <!-- EDIT FORM-->
+    <div class="overlay" id="editPopup"> <!-- EDIT FORM-->
       <div class="message-box">
-        <span class="close-btn" onclick="closePopup('editForm')">×</span>
+        <span class="close-btn" onclick="closePopup('editPopup')">×</span>
         <h2>Редактировать текущую страницу</h2>
         <form onsubmit="submitEdit(event); this.reset();">
           <label for="newNameInput">Название</label>
@@ -77,9 +77,9 @@
       </div>
     </div>
 
-    <div class="overlay" id="historyForm"> <!-- HISTORY FORM-->
+    <div class="overlay" id="historyPopup"> <!-- HISTORY FORM-->
       <div class="message-box">
-        <span class="close-btn" onclick="closePopup('historyForm')">×</span>
+        <span class="close-btn" onclick="closePopup('historyPopup')">×</span>
         <h2>Звонки</h2>
         <table border="1" id="calls"></table>
       </div>

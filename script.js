@@ -63,7 +63,7 @@ function deleteCurrentPage(){ //TODO: root can't be deleted
     .then( data => {
         if (data.status === "ok"){
             goBack();
-            closePopup('deleteForm');
+            closePopup('deletePopup');
             alert("Страница удалена");
         }else{
             alert("Не удалось удалить страницу.");
@@ -91,7 +91,7 @@ function submitSos(event){
     .then(response => response.json())
     .then(data => {
         if (data.status === "ok"){
-            closePopup('sosForm');
+            closePopup('sosPopup');
             alert("Вопрос добавлен.");
         }else{
             alert("Не удалось добавить вопрос.");
@@ -119,7 +119,7 @@ function submitAdd(event){
     .then(response => response.json())
     .then(data => {
         if (data.status === "ok"){
-            closePopup('addForm');
+            closePopup('addPopup');
             alert("Страница добавлена.");
         }else{
             alert("Не удалось добавить страницу.");
@@ -161,7 +161,7 @@ function submitEdit(event){
     .then(response => response.json())
     .then(data => {
         if (data.status === "ok"){
-            closePopup('addForm');
+            closePopup('addPopup');
             alert("Новые данные сохранены.");
         }else{
             alert("Не удалось редактировать страницу.");
@@ -170,7 +170,7 @@ function submitEdit(event){
     .catch(error => console.error("Error:", error));
 }
 
-function openHistory(){
+function updateHistory(){
     fetch("history.php")
     .then(response => response.json())
     .then(data => {
@@ -196,7 +196,6 @@ function openHistory(){
 
         document.getElementById("calls").innerHTML = html;
     }).catch(error => console.error("Error: ", error));
-    openPopup('historyForm');
 }
 
 selectNodeById(1);
