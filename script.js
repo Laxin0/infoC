@@ -104,8 +104,8 @@ function submitAdd(event){
     event.preventDefault();
 
     const bodyData = {
-        name: document.getElementById("nameInput"),
-        content: document.getElementById("contentInput"),
+        name: document.getElementById("nameInput").value,
+        content: document.getElementById("contentInput").value,
         parentId: path[path.length-1]
     }
 
@@ -137,7 +137,7 @@ function updateEditForm(){
             return;
         }
         document.getElementById("newNameInput").value = data.name;
-        document.getElementById("newContentInput").value = data.value;
+        document.getElementById("newContentInput").value = data.content;
     })
     .catch(error => console.error("Error:", error));
 }
@@ -147,8 +147,8 @@ function submitEdit(event){
 
     const bodyData = {
         id: path[path.length-1],
-        name: document.getElementById("newNameInput"),
-        content: document.getElementById("newContentInput"),
+        name: document.getElementById("newNameInput").value,
+        content: document.getElementById("newContentInput").value,
     }
 
     fetch("editPage.php", {

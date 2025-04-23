@@ -70,7 +70,7 @@
         <form onsubmit="submitEdit(event); this.reset();">
           <label for="newNameInput">Название</label>
           <input type="text" id="newNameInput" required><br>
-          <label for="contentInput">Содержание</label>
+          <label for="newContentInput">Содержание</label>
           <input type="text" id="newContentInput" required><br>
           <button type="submit">Сохранить</button>
         </form>

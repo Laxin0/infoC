@@ -16,14 +16,13 @@ function return_error($msg, $code=500){
 }
 
 function db_get_data_by_id($connection, $id){ # Get name directly from the button
-    $query = "SELECT name, path FROM pages WHERE id=$id";
+    $query = "SELECT name, content FROM pages WHERE id=$id";
     $result = $connection->query($query);
     
     $row = $result->fetch_assoc();
     
     $name = $row["name"];
-    $path = $row["path"];
-    $content = file_get_contents("data/" . $path);
+    $content = $row["content"]; 
     
     $query = "SELECT id, name FROM pages WHERE parent_id=$id";
     $result = $connection->query($query);

@@ -10,7 +10,7 @@ $content = $data['content'];
 $parent_id = $data['parentId'];
 
 
-$result = $mysql->query("INSERT INTO pages (name, parent_id, content) VALUES ('$name', '$content', '$parent_id')");
+$result = $mysql->query("INSERT INTO pages (name, parent_id, content) VALUES ('$name', '$parent_id', '$content')");
 
 echo(json_encode(["status" => $result ? "ok" : "err"]));
 
