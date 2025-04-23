@@ -36,7 +36,7 @@
       <div class="message-box">
         <span class="close-btn" onclick="closePopup('sosForm')">×</span>
         <h2>Внесите данные для обратной связи</h2>
-        <form onsubmit="submitSos(event)">
+        <form onsubmit="submitSos(event); this.reset();">
           <label for="phoneNumberInput">Тел.</label>
           <input type="text" id="phoneNumberInput" required><br>
           <label for="fullNameInput">ФИО</label>
@@ -52,7 +52,7 @@
       <div class="message-box">
         <span class="close-btn" onclick="closePopup('addForm')">×</span>
         <h2>Новый узел будет добавлен к текущему</h2>
-        <form onsubmit="submitAdd(event)">
+        <form onsubmit="submitAdd(event); this.reset();">
           <label for="nameInput">Название</label>
           <input type="text" id="nameInput" required><br>
           <label for="contentInput">Содержание</label>
