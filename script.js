@@ -128,7 +128,7 @@ function submitAdd(event){
     .catch(error => console.error("Error:", error));
 }
 
-function updateEditForm(){
+function updateEditPopup(){
     fetch(`server.php?id=${path[path.length-1]}`)
     .then(response => response.json())
     .then(data => {
@@ -161,7 +161,7 @@ function submitEdit(event){
     .then(response => response.json())
     .then(data => {
         if (data.status === "ok"){
-            closePopup('addPopup');
+            closePopup('editPopup');
             alert("Новые данные сохранены.");
         }else{
             alert("Не удалось редактировать страницу.");

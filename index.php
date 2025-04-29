@@ -20,8 +20,8 @@
     <hr>
     <button onclick="openPopup('deletePopup')">Удалить</button>
     <button onclick="openPopup('sosPopup')">SOS</button>
-    <button onclick="openHistory()">История</button>
-    <button onclick="updateHistory(); openPopup('addPopup');">Добавить</button>
+    <button onclick="updateHistory(); openPopup('historyPopup');">История</button>
+    <button onclick="openPopup('addPopup');">Добавить</button>
     <button onclick="updateEditPopup(); openPopup('editPopup');">Редактировать</button>
 
     <div class="overlay" id="deletePopup"> <!-- DELETE FORM-->
