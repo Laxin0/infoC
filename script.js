@@ -190,12 +190,30 @@ function updateHistory(){
             <td>${row.fullName}</td>
             <td>${row.question}</td>
             <td>${row.sourcePage}</td>
-            <td>${row.isSolve ? "Решено" : "Не решено"}</td>
+            <td><button onclick='toggleCallStatusById(${row.id})'>${row.isSolved == true ? "Решено" : "Не решено"}</button></td>
             </tr>`;
         });
 
         document.getElementById("calls").innerHTML = html;
     }).catch(error => console.error("Error: ", error));
+}
+
+function toggleCallStatusById(callId){
+    fetch("toggleCallStatus.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id: callId})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status !== "ok"){
+            alert("Не удалось изменить статус звонка.");
+        }
+        updateHistory();
+    })
+    .catch(error => console.error("Error: ", error))
 }
 
 selectNodeById(1);
