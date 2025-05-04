@@ -1,6 +1,85 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 20px;
   }
+
+  .breadcrumb { /*OK*/
+    background-color: #fff3c4;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: fit-content;
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+  }
+
+  .back-button {
+    background-color: #cce0f5;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;/*TODO: maybe not text*/
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .main-box {
+    white-space: pre;
+    flex-grow: 1;
+    border: 1px solid black;
+    border-radius: 8px;
+    min-height: 250px;
+    height: fit-content;
+    display: flex;
+    font-size: 24px;
+    padding: 10px;
+    white-space: pre-wrap;
+  }
+
+  .side-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 10px;
+  }
+
+  .side-buttons button {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .sos { background-color: #f88; }
+  .history { background-color: #fff3c4; }
+  .edit { background-color: #ffdfc2; }
+  .delete { background-color: #ffdfc2; }
+  .add { background-color: #ffdfc2; }
+
+  .bottom-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .bottom-buttons button {
+    padding: 10px;
+    background-color: #cce0f5;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16pxж
+  }
+
+  /* popups */
 
   .overlay {
     position: fixed;
@@ -17,12 +96,11 @@ body {
 
   .message-box {
     background: white;
-    padding: 2rem;
+    padding: 20px;
     border-radius: 8px;
     position: relative;
-    width: 300px;
     text-align: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    min-width: 400px;
   }
 
   .close-btn {
@@ -30,11 +108,63 @@ body {
     top: 10px;
     right: 15px;
     font-size: 20px;
-    font-weight: bold;
     color: #555;
     cursor: pointer;
   }
 
   .close-btn:hover {
     color: #000;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input[type="text"],
+  textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #eee;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    /*align-content: center;*/
+  }
+
+  textarea{
+    min-width: 500px;
+    min-height: 100px;
+    resize: both;
+  }
+
+
+  h2{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
+  .save-btn {
+    background-color: #aef7ae;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 10px;
+  }
+
+  .delete-btn {
+    background-color: #f88;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 10px;
   }

@@ -22,3 +22,5 @@ while ($row = $result->fetch_assoc()) {
 }
 
 echo(json_encode(numerate($arr)));
+
+$mysql->close();

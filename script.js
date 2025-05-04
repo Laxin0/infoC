@@ -2,8 +2,6 @@ function updatePage(data){
     document.getElementById("path").innerText = namesPath.join("/");
     document.getElementById("content").innerHTML = data.content;
 
-    document.getElementById("name").innerHTML = data.name;
-
     let buttons = document.getElementById("child_nodes");
     buttons.replaceChildren();
 
@@ -198,7 +196,7 @@ function updateHistory(){
     }).catch(error => console.error("Error: ", error));
 }
 
-function toggleCallStatusById(callId){
+function toggleCallStatusById(callId){ //TODO: optimize
     fetch("toggleCallStatus.php", {
         method: 'POST',
         headers: {
