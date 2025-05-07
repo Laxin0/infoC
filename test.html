@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Интерфейс</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: white;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .breadcrumb {
+      background-color: #fff3c4;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      /* width: fit-content; */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+    }
+
+    .back-button {
+      background-color: #cce0f5;
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      padding: 10px;
+      cursor: pointer;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .main-box {
+      flex-grow: 1;
+      border: 1px solid black;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-style: italic;
+    }
+
+    .side-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-left: 10px;
+    }
+
+    .side-buttons button {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      height: 50px; /* Uniform height */
+    }
+
+    .sos { background-color: #f8c4c4; }
+    .history { background-color: #fff3c4; }
+    .edit { background-color: #fdd; }
+    .delete { background-color: #f88; }
+    .add { background-color: #c4f8c4; }
+
+    .bottom-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .bottom-buttons button {
+      padding: 10px;
+      background-color: #cce0f5;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="breadcrumb">Стр/стр/стр/...</div>
+<button class="back-button">⤺</button>
+  <div class="container">
+    
+    <div class="main-box"><strong>Информация . . .</strong></div>
+    <div class="side-buttons">
+      <button class="sos">SOS</button>
+      <button class="history">История</button>
+      <button class="edit">✎</button>
+      <button class="delete">🗑</button>
+      <button class="add">+</button>
+    </div>
+  </div>
+
+  <div class="bottom-buttons">
+    <button>Общежитие</button>
+    <button>Направления</button>
+    <button>...</button>
+  </div>
+
+</body>
+</html>
