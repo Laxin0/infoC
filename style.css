@@ -3,168 +3,204 @@ body {
     background-color: white;
     margin: 0;
     padding: 20px;
-  }
+}
 
-  .breadcrumb { /*OK*/
-    background-color: #fff3c4;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    width: fit-content;
-  }
+.breadcrumb { /*OK*/
+  background-color: #fff3c4;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
 
-  .main-container {
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-  }
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
 
-  .back-button {
-    background-color: #cce0f5;
-    border: none;
-    border-radius: 8px;
-    font-size: 20px;/*TODO: maybe not text*/
-    padding: 10px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
+.back-button {
+  background-color: #cce0f5;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;/*TODO: maybe not text*/
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
 
-  .main-box {
-    white-space: pre;
-    flex-grow: 1;
-    border: 1px solid black;
-    border-radius: 8px;
-    min-height: 250px;
-    height: fit-content;
-    display: flex;
-    font-size: 24px;
-    padding: 10px;
-    white-space: pre-wrap;
-  }
+.main-box {
+  white-space: pre;
+  flex-grow: 1;
+  border: 1px solid black;
+  border-radius: 8px;
+  min-height: 250px;
+  height: fit-content;
+  display: flex;
+  font-size: 24px;
+  padding: 10px;
+  white-space: pre-wrap;
+}
 
-  .side-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-left: 10px;
-  }
+.side-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 10px;
+}
 
-  .side-buttons button {
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-  }
+.side-buttons button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
 
-  .sos { background-color: #f88; }
-  .history { background-color: #fff3c4; }
-  .edit { background-color: #ffdfc2; }
-  .delete { background-color: #ffdfc2; }
-  .add { background-color: #ffdfc2; }
+.sos { background-color: #f88; }
+.history { background-color: #fff3c4; }
+.edit { background-color: #ffdfc2; }
+.delete { background-color: #ffdfc2; }
+.add { background-color: #ffdfc2; }
 
-  .bottom-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-  }
+.bottom-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
 
-  .bottom-buttons button {
-    padding: 10px;
-    background-color: #cce0f5;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16pxж
-  }
+.bottom-buttons button {
+  padding: 10px;
+  background-color: #cce0f5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16pxж
+}
 
-  /* popups */
+/* popups */
 
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none; /* Hidden by default */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
-  .message-box {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    position: relative;
-    text-align: center;
-    min-width: 400px;
-  }
+.message-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+  min-width: 400px;
+}
 
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 20px;
-    color: #555;
-    cursor: pointer;
-  }
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  color: #555;
+  cursor: pointer;
+}
 
-  .close-btn:hover {
-    color: #000;
-  }
+.close-btn:hover {
+  color: #000;
+}
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-  input[type="text"],
-  textarea {
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background-color: #eee;
-    font-size: 14px;
-    width: 100%;
-    box-sizing: border-box;
-    /*align-content: center;*/
-  }
+input[type="text"],
+textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #eee;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  /*align-content: center;*/
+}
 
-  textarea{
-    min-width: 500px;
-    min-height: 100px;
-    resize: both;
-  }
+textarea{
+  min-width: 520px;
+  min-height: 100px;
+  resize: both;
+}
 
 
-  h2{
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 25px;
-  }
+h2{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
 
-  .save-btn {
-    background-color: #aef7ae;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    align-self: center;
-    margin-top: 10px;
-  }
+.save-btn {
+  background-color: #aef7ae;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 10px;
+}
 
-  .delete-btn {
-    background-color: #f88;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    align-self: center;
-    margin-top: 10px;
-  }
+.delete-btn {
+  background-color: #f88;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 10px;
+}
+
+/* table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+  max-width: 300px;
+}
+
+tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.status-resolved {
+  display: inline-block;
+  background-color: #d1fae5;
+  color: #065f46;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.status-unresolved {
+  display: inline-block;
+  background-color: #fee2e2;
+  color: #991b1b;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 8px;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Звонки</title>
+  <style>
+    body {
+      background-color: #f3f4f6;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      width: 100%;
+      padding: 24px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .header h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    .close-button {
+      font-size: 24px;
+      color: #9ca3af;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .close-button:hover {
+      color: #4b5563;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid #e5e7eb;
+      text-align: left;
+      max-width: 300px;
+    }
+
+    thead {
+      background-color: #f9fafb;
+      color: #374151;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+
+    .status-resolved {
+      display: inline-block;
+      background-color: #d1fae5;
+      color: #065f46;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 8px;
+    }
+
+    .status-unresolved {
+      display: inline-block;
+      background-color: #fee2e2;
+      color: #991b1b;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Звонки</h2>
+      <button class="close-button">&times;</button>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Тел.</th>
+            <th>ФИО</th>
+            <th>Вопрос</th>
+            <th>Источник</th>
+            <th>Статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>8 228 000 42 42</td>
+            <td>Иванов Иван</td>
+            <td>Как поступить в институт</td>
+            <td>Корень</td>
+            <td><span class="status-resolved">Решено</span></td>
+          </tr>
+          <tr>
+            <td>8 800 555 35 35</td>
+            <td>Петров Петр</td>
+            <td>Какие экзамены сдают при поступлении fdfgdfgdfgdfgdfgdf gdlfkgdlfkgmldkfm glkdfmglkdmfgl kmdlfkmgldk fmglkdmfl gmdfkgmdkfm glkdfg
+                sdfsdfsdff
+                sdfsdfsdffs dfsdfs dfsdf sdfsdfsdfsfsdf sddddddddd dddddddd dddf dsssssssss ssssssssfsfsd fsffsfd fssffs sfsfd
+                fsdfs fssfdsdfs dfsdf sdfsdf sdfsd f sf s fsdfsdf
+            </td>
+            <td>Корень</td>
+            <td><span class="status-unresolved">Не решено</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

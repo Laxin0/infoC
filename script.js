@@ -50,6 +50,10 @@ function closePopup(id) {
 
 function deleteCurrentPage(){ //TODO: root can't be deleted
     const currentId = path[path.length-1];
+    if (currentId === 1){
+        alert("Начальная страница не может быть удалена!");
+        return;
+    }
     fetch('delete.php', {
         method: 'POST',
         headers: {
@@ -188,7 +192,7 @@ function updateHistory(){
             <td>${row.fullName}</td>
             <td>${row.question}</td>
             <td>${row.sourcePage}</td>
-            <td><button onclick='toggleCallStatusById(${row.id})'>${row.isSolved == true ? "Решено" : "Не решено"}</button></td>
+            <td><span class='${row.isSolved == true ? "status-resolved" : "status-unresolved"}' onclick='toggleCallStatusById(${row.id})'>${row.isSolved == true ? "Решено" : "Не решено"}</span></td>
             </tr>`;
         });
 
