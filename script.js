@@ -132,17 +132,8 @@ function submitAdd(event){
 }
 
 function updateEditPopup(){
-    fetch(`server.php?id=${path[path.length-1]}`)
-    .then(response => response.json())
-    .then(data => {
-        if (data.error){
-            alert("Что-то пошло не так...");
-            return;
-        }
-        document.getElementById("newNameInput").value = data.name;
-        document.getElementById("newContentInput").value = data.content;
-    })
-    .catch(error => console.error("Error:", error));
+    document.getElementById("newNameInput").value = namesPath[namesPath.length-1];
+    document.getElementById("newContentInput").value = document.getElementById("content");
 }
 
 function submitEdit(event){
@@ -244,12 +235,6 @@ function isAdmin(){
     return document.cookie.includes("isAdmin=true");
 }
 
-function disableAdmin() {
-    document.cookie = "isAdmin=; Max-Age=0; path=/";
-    alert("Администрирование отключено");
-    updateSideButtons();
-}
-
 function updateSideButtons(){
     document.getElementById('admin-btn').textContent = isAdmin() ? "Выйти" : "Войти";
     document.getElementById('add-btn').disabled = !isAdmin();
@@ -259,7 +244,9 @@ function updateSideButtons(){
 
 function toggleUserStatus(){
     if (isAdmin()){
-        disableAdmin();
+        document.cookie = "isAdmin=; Max-Age=0; path=/";
+        alert("Администрирование отключено");
+        updateSideButtons();
     }else{
         openPopup('askPassword');
     }
