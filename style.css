@@ -5,7 +5,7 @@ body {
     padding: 20px;
 }
 
-.breadcrumb { /*OK*/
+.breadcrumb {
   background-color: #fff3c4;
   padding: 10px;
   border-radius: 8px;
@@ -23,7 +23,7 @@ body {
   background-color: #cce0f5;
   border: none;
   border-radius: 8px;
-  font-size: 20px;/*TODO: maybe not text*/
+  font-size: 20px;
   padding: 10px;
   cursor: pointer;
   margin-bottom: 10px;
@@ -34,7 +34,7 @@ body {
   flex-grow: 1;
   border: 1px solid black;
   border-radius: 8px;
-  min-height: 250px;
+  min-height: 300px;
   height: fit-content;
   display: flex;
   font-size: 24px;
@@ -55,6 +55,7 @@ body {
   border: none;
   cursor: pointer;
   font-size: 16px;
+  height: 45px;
 }
 
 .sos { background-color: #f88; }
@@ -138,6 +139,8 @@ textarea {
 textarea{
   min-width: 520px;
   min-height: 100px;
+  max-width: 70vw;
+  max-height: 70vh;
   resize: both;
 }
 
