@@ -123,6 +123,7 @@ function submitAdd(event){
         if (data.status === "ok"){
             closePopup('addPopup');
             alert("Страница добавлена.");
+            selectNodeById(path[path.length-1]);
         }else{
             alert("Не удалось добавить страницу.");
         }
@@ -165,6 +166,7 @@ function submitEdit(event){
         if (data.status === "ok"){
             closePopup('editPopup');
             alert("Новые данные сохранены.");
+            selectNodeById(path[path.length-1]);
         }else{
             alert("Не удалось редактировать страницу.");
         }
@@ -218,4 +220,50 @@ function toggleCallStatusById(callId){ //TODO: optimize
     .catch(error => console.error("Error: ", error))
 }
 
+function checkPswd(event) {
+    event.preventDefault();
+    const passwordInput = document.getElementById('admin-password').value;
+
+    fetch('checkAdmin.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json' },
+        body: JSON.stringify({password: passwordInput})
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Администрирование активно');
+            updateSideButtons();
+            closePopup('askPassword');
+        } else {
+            alert('Неверный пароль!');
+        }
+    }).catch(error => console.error("Error: ", error));
+}
+
+function isAdmin(){
+    return document.cookie.includes("isAdmin=true");
+}
+
+function disableAdmin() {
+    document.cookie = "isAdmin=; Max-Age=0; path=/";
+    alert("Администрирование отключено");
+    updateSideButtons();
+}
+
+function updateSideButtons(){
+    document.getElementById('admin-btn').textContent = isAdmin() ? "Выйти" : "Войти";
+    document.getElementById('add-btn').disabled = !isAdmin();
+    document.getElementById('edit-btn').disabled = !isAdmin();
+    document.getElementById('delete-btn').disabled = !isAdmin();
+}
+
+function toggleUserStatus(){
+    if (isAdmin()){
+        disableAdmin();
+    }else{
+        openPopup('askPassword');
+    }
+}
+
 selectNodeById(1);
+updateSideButtons();

@@ -12,12 +12,12 @@
     <div class="main-container">
       <div class="main-box" id="content"></div>
       <div class="side-buttons">
-
+        <button id="admin-btn" class="getAdmin" onclick="toggleUserStatus()">Войти</button>
         <button class="sos" onclick="openPopup('sosPopup')">SOS</button>
         <button class="history" onclick="updateHistory(); openPopup('historyPopup');">История</button>
-        <button class="add" onclick="openPopup('addPopup');">+</button>
-        <button class="edit" onclick="updateEditPopup(); openPopup('editPopup');">✎</button>
-        <button class="delete" onclick="openPopup('deletePopup')">🗑</button>
+        <button id="add-btn" class="add" onclick="openPopup('addPopup');">+</button>
+        <button id="edit-btn" class="edit" onclick="updateEditPopup(); openPopup('editPopup');">✎</button>
+        <button id="delete-btn" class="delete" onclick="openPopup('deletePopup')">🗑</button>
       </div>
     </div>
 
@@ -76,6 +76,16 @@
         <table border="1" id="calls"></table>
       </div>
     </div>
+
+  <div class="overlay" id="askPassword">
+    <div class="message-box">
+      <span class="close-btn" onclick="closePopup('askPassword')">×</span><br>
+      <form id="admin-login-form" onsubmit="checkPswd(event)">
+        <input type="password" id="admin-password" placeholder="Пароль" required />
+        <button class="save-btn" type="submit">Получить права администратора</button>
+      </form>
+    </div>
+  </div>
 
     <script type="text/javascript" src="script.js"></script>
 </body>

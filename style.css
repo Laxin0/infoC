@@ -122,6 +122,7 @@ form {
   gap: 10px;
 }
 
+input[type="password"],
 input[type="text"],
 textarea {
   padding: 10px;
