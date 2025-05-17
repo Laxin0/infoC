@@ -51,7 +51,7 @@ function closePopup(id) {
 function deleteCurrentPage(){ //TODO: root can't be deleted
     const currentId = path[path.length-1];
     if (currentId === 1){
-        alert("Начальная страница не может быть удалена!");
+        showMessage("Начальная страница не может быть удалена!");
         return;
     }
     fetch('delete.php', {
@@ -66,9 +66,9 @@ function deleteCurrentPage(){ //TODO: root can't be deleted
         if (data.status === "ok"){
             goBack();
             closePopup('deletePopup');
-            alert("Страница удалена");
+            showMessage("Страница удалена");
         }else{
-            alert("Не удалось удалить страницу.");
+            showMessage("Не удалось удалить страницу.");
         }
     })
     .catch(error => console.error("Error:", error));
@@ -94,9 +94,9 @@ function submitSos(event){
     .then(data => {
         if (data.status === "ok"){
             closePopup('sosPopup');
-            alert("Вопрос добавлен.");
+            showMessage("Вопрос добавлен.");
         }else{
-            alert("Не удалось добавить вопрос.");
+            showMessage("Не удалось добавить вопрос.");
         }
     })
     .catch(error => console.error("Error:", error));
@@ -122,10 +122,10 @@ function submitAdd(event){
     .then(data => {
         if (data.status === "ok"){
             closePopup('addPopup');
-            alert("Страница добавлена.");
+            showMessage("Страница добавлена.");
             selectNodeById(path[path.length-1]);
         }else{
-            alert("Не удалось добавить страницу.");
+            showMessage("Не удалось добавить страницу.");
         }
     })
     .catch(error => console.error("Error:", error));
@@ -156,10 +156,10 @@ function submitEdit(event){
     .then(data => {
         if (data.status === "ok"){
             closePopup('editPopup');
-            alert("Новые данные сохранены.");
+            showMessage("Новые данные сохранены.");
             selectNodeById(path[path.length-1]);
         }else{
-            alert("Не удалось редактировать страницу.");
+            showMessage("Не удалось редактировать страницу.");
         }
     })
     .catch(error => console.error("Error:", error));
@@ -204,7 +204,7 @@ function toggleCallStatusById(callId){ //TODO: optimize
     .then(response => response.json())
     .then(data => {
         if (data.status !== "ok"){
-            alert("Не удалось изменить статус звонка.");
+            showMessage("Не удалось изменить статус звонка.");
         }
         updateHistory();
     })
@@ -222,11 +222,11 @@ function checkPswd(event) {
     })
     .then(response => {
         if (response.ok) {
-            alert('Администрирование активно');
+            showMessage('Администрирование активно');
             updateSideButtons();
             closePopup('askPassword');
         } else {
-            alert('Неверный пароль!');
+            showMessage('Неверный пароль!');
         }
     }).catch(error => console.error("Error: ", error));
 }
@@ -245,12 +245,22 @@ function updateSideButtons(){
 function toggleUserStatus(){
     if (isAdmin()){
         document.cookie = "isAdmin=; Max-Age=0; path=/";
-        alert("Администрирование отключено");
+        showMessage("Администрирование отключено");
         updateSideButtons();
     }else{
         openPopup('askPassword');
     }
 }
+
+function showMessage(msg) {
+    const messageEl = document.getElementById('message');
+    messageEl.innerText = msg;
+    messageEl.classList.add('show');
+
+    setTimeout(() => {
+        messageEl.classList.remove('show');
+    }, 3000);
+  }
 
 selectNodeById(1);
 updateSideButtons();
