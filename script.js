@@ -133,7 +133,7 @@ function submitAdd(event){
 
 function updateEditPopup(){
     document.getElementById("newNameInput").value = namesPath[namesPath.length-1];
-    document.getElementById("newContentInput").value = document.getElementById("content");
+    document.getElementById("newContentInput").value = document.getElementById("content").innerHTML;
 }
 
 function submitEdit(event){

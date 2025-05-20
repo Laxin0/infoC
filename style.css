@@ -77,7 +77,7 @@ body {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 16pxж
+  font-size: 16px
 }
 
 /* popups */
@@ -101,7 +101,8 @@ body {
   border-radius: 8px;
   position: relative;
   text-align: center;
-  min-width: 400px;
+  min-width: 40vw;
+  min-height: 40vh;
 }
 
 .close-btn {
