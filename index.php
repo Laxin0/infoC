@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="breadcrumb" id="path"></div>
+    <button class="back-button" onclick="selectNodeById(1); path.splice(1); namesPath.splice(1); ">В начало</button>
     <button class="back-button" onclick="goBack()">⤺</button><br>
     <div class="main-container">
       <div class="main-box" id="content"></div>

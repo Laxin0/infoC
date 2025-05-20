@@ -23,10 +23,11 @@ body {
   background-color: #cce0f5;
   border: none;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 16px;
   padding: 10px;
   cursor: pointer;
   margin-bottom: 10px;
+  height: 36px;
 }
 
 .main-box {
