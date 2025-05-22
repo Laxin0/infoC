@@ -171,6 +171,7 @@ function updateHistory(){
     .then(data => {
         let html = `
         <tr>
+            <th></th>
             <th>Тел.</th>
             <th>ФИО</th>
             <th>Вопрос</th>
@@ -181,6 +182,7 @@ function updateHistory(){
         data.forEach(row => {
             html += `
             <tr>
+            <td><span class='status-unresolved' onclick='deleteCallById(${row.id})'>🗑</span></td>
             <td>${row.phoneNumber}</td>
             <td>${row.fullName}</td>
             <td>${row.question}</td>
@@ -191,6 +193,31 @@ function updateHistory(){
 
         document.getElementById("calls").innerHTML = html;
     }).catch(error => console.error("Error: ", error));
+}
+
+function deleteCallById(callId){
+    if (!isAdmin()){
+        showMessage("Нет прав администратора.");
+        return;
+    }
+    fetch("deleteCall.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id: callId})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status !== "ok"){
+            showMessage("Не удалось удалить звонок.");
+        }else{
+            updateHistory();
+            showMessage("Звонок удален.");
+        }
+        
+    })
+    .catch(error => console.error("Error: ", error))
 }
 
 function toggleCallStatusById(callId){ //TODO: optimize

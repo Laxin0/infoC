@@ -102,8 +102,12 @@ body {
   border-radius: 8px;
   position: relative;
   text-align: center;
-  min-width: 40vw;
+  width: fit-content;
+  height: fit-content;
+  /*min-width: 40vw;
   min-height: 40vh;
+  max-width: 70vw;
+  max-height: 70vh;*/
 }
 
 .close-btn {
@@ -135,14 +139,16 @@ textarea {
   font-size: 14px;
   width: 100%;
   box-sizing: border-box;
+  min-width: 40vw;
+  max-width: 60vw;
   /*align-content: center;*/
 }
 
 textarea{
-  min-width: 520px;
-  min-height: 100px;
-  max-width: 70vw;
-  max-height: 70vh;
+  height: fit-content;
+  width: fit-content;
+  min-height: 15vh;
+  max-height: 60vh;
   resize: both;
 }
 
